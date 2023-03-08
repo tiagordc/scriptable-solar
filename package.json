@@ -1,0 +1,14 @@
+{
+  "name": "scriptable-solar",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Tiago Costa",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/scriptable-ios": "^1.7.0"
+  }
+}
