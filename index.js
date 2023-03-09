@@ -58,6 +58,7 @@ async function createWidget() {
 
 	const logoImg = await getImage('logo.png');
 	const last = await getMeter('last');
+	const today = await getMeter('today');
 
 	let w = new ListWidget()
 	w.backgroundColor = new Color("#03a9f4", 1.0);
@@ -89,12 +90,12 @@ async function createWidget() {
 	labelStack.borderWidth = 0;
 	labelStack.layoutVertically();
 
-	addLabel(labelStack, "        Active:");
-	addLabel(labelStack, "         Meter:");
-	addLabel(labelStack, "          Temp:");
-	addLabel(labelStack, "Consumed:");
-	addLabel(labelStack, "  From Grid:");
-	addLabel(labelStack, "         Faults:");
+	addLabel(labelStack, "  Active:");
+	addLabel(labelStack, "   Meter:");
+	addLabel(labelStack, "    Temp:");
+	addLabel(labelStack, "     Total:");
+	addLabel(labelStack, "       Sun:");
+	addLabel(labelStack, "   Faults:");
 
 	const dataStack = bodyStack.addStack();
     dataStack.setPadding(10, 3, 10, 0);
@@ -104,6 +105,9 @@ async function createWidget() {
 	addData(dataStack, last.active.toString() + " W");
 	addData(dataStack, last.meter.toString() + " W");
 	addData(dataStack, last.temp.toString() + " °C");
+	addData(dataStack, today.consumption.toString() + " kWh");
+	addData(dataStack, today.consumed.toString() + " kWh");
+	addData(dataStack, today.faults.toString());
 
 	return w;
 	
